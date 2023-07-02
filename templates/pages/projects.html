@@ -1,0 +1,83 @@
+{% extends 'base.html' %} 
+{% load static %}
+{% load i18n %}
+
+{% block content %}
+<!-- Page content-->
+<section class="position-relative bg-white rounded-xxl-4 zindex-5" style="margin-top: -30px;">
+  <div class="container pt-4 pb-5 mb-md-4">
+    <div class="row">
+      <!-- Sticky sidebar-->
+      <aside class="col-lg-4 col-md-5 mb-4 mb-md-0" style="margin-top: -6rem;">
+        <div class="sticky-top" style="padding-top: 6rem;">
+          <!-- Side Nav Partial -->
+          {% include 'partials/_side-navbar.html' %}
+        </div>
+      </aside>
+
+      <!-- Resume Col -->
+      <div class="col-lg-8 col-md-7 position-relative mb-4 mb-md-0">
+
+        <!-- Projects Section -->
+        <section class="mb-4 pb-md-3" id="projects">
+          <h1 class="h3 mb-0">Projects</h1>
+          <!-- Breadcrumb-->
+          <nav class="mb-3 pt-md-2" aria-label="Breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a></li>
+              <li class="breadcrumb-item active" aria-current="page">My Projects</li>
+            </ol>
+          </nav>
+          <p class="pb-3 border-bottom mb-4">My projects are divided between e-commerce, social-media, listings and booking.</p>
+
+          <!-- Projects container -->
+          <div class="row g-4 py-2">
+
+            <!-- Projects List -->
+            {% for i in projects_list %}
+            <div class="col-sm-12 col-md-12 col-lg-6">
+              <div class="rounded-3" href="{{ i.link }}">
+                <div class="card mb-4">
+                  <!-- Card Image on top -->
+                  <div class="card-img-top card-img-hover" width="300">
+                    <a href="{{ i.link }}" class="img-overlay"></a>
+                    <div class="position-absolute start-0 top-0 pt-3 ps-3">
+                      <span class="d-table badge bg-primary mb-1">{{ i.category }}</span>
+                    </div>
+                    <div class="content-overlay end-0 top-0 pt-3 pe-3">
+                      <button type="button" class="btn btn-icon btn-light btn-xs text-primary rounded-circle" data-bs-toggle="tooltip" data-bs-placement="left" title="View project">
+                        <i class="fi-eye-on"></i>
+                      </button>
+                    </div>
+                    <!-- Lazy Loaded Project Img -->
+                    <img src="{{ i.small_image.url }}" data-src="{{ i.large_image.url }}" alt="Project Image" class="lazy w-100" />
+                  </div>
+                  <!-- Project Info -->
+                  <div class="card-body position-relative pt-3 pb-2">
+                    <!-- Project Title -->
+                    <h3 class="h6 mb-2">
+                      <a class="nav-link stretched-link" href="{{ i.link }}">{{ i.title }}</a>
+                    </h3>
+                    <!-- Project Description-->
+                    <p class="fs-sm opacity-70 pb-2">{{ i.description }}</p>
+                    <!-- project Languages -->
+                    <div class="d-flex flex-wrap">
+                      <span class="badge rounded-pill bg-secondary me-2 mb-2">HTML</span>
+                      <span class="badge rounded-pill bg-secondary me-2 mb-2">CSS</span>
+                      <span class="badge rounded-pill bg-secondary me-2 mb-2">Javascript</span>
+                      <span class="badge rounded-pill bg-secondary me-2 mb-2">Bootstrap</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            {% endfor %}
+
+          </div>
+        </section>
+
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

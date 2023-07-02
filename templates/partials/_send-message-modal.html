@@ -1,0 +1,61 @@
+{% load static %}
+{% load i18n %}
+
+<!-- Send Message Modal-->
+<div class="modal fade" id="send-message-modal" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header d-block position-relative border-0 pb-0 px-sm-5 px-4">
+        <h3 class="modal-title mt-4 text-center">Contact Me</h3>
+        <button class="btn-close position-absolute top-0 end-0 mt-3 me-3" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body px-sm-5 px-4">
+        <!-- Social Media Chat -->
+        <div class="row g-3 mb-3">
+          <p class="text-center">You can contact me directly by clicking on any of the below social media buttons, or you can leave me a message below and i will get back to you soon!</p>
+          <div class="d-flex justify-content-center pb-4">
+            <a class="btn btn-icon btn-light-primary btn-sm shadow-sm rounded-circle me-2" href="https://www.linkedin.com/in/ahmed-fathy-mohamed/" target="_blank"><i class="fi-linkedin"></i></a>
+            <a class="btn btn-icon btn-light-primary btn-sm shadow-sm rounded-circle me-2" href="https://www.facebook.com/profile.php?id=687486467" target="_blank"><i class="fi-facebook"></i></a>
+            <a class="btn btn-icon btn-light-primary btn-sm shadow-sm rounded-circle me-2" href="https://www.instagram.com/a_fathy/?fbclid=IwAR1gyYPpavAzjOxDY6f48BSk2IAKNWYTR2vzXsSg0J0tnkKWLjg0_sAksfI" target="_blank"><i class="fi-instagram"></i></a>
+            <a class="btn btn-icon btn-light-primary btn-sm shadow-sm rounded-circle me-2" href="https://wa.me/00201111129280" target="_blank"><i class="fi-whatsapp"></i></a>
+            <a class="btn btn-icon btn-light-primary btn-sm shadow-sm rounded-circle me-2" href="https://wa.me/00201111129280" target="_blank"><i class="fi-telegram"></i></a>
+            <a class="btn btn-icon btn-light-primary btn-sm shadow-sm rounded-circle" href="https://m.me/profile.php?id=687486467" target="_blank"><i class="fi-messenger"></i></a>
+          </div>
+        </div>
+
+        <!-- OR -->
+        <div class="d-flex align-items-center pb-3 mb-3">
+          <hr class="text-dark opacity-10 w-100" />
+          <div class="opacity-80 px-3">{% trans "Or" %}</div>
+          <hr class="text-dark opacity-10 w-100" />
+        </div>
+
+        <!-- Leave a message -->
+        <form class="needs-validation" action="{% url 'contact' %}" method="POST" novalidate>
+          {% csrf_token %}
+          <div class="mb-3">
+            <label class="form-label" for="contact-name">Name <span class='text-danger'>*</span></label>
+            <input class="form-control" type="text" name="contact_name" id="contact-name" placeholder="Your name" required>
+            <div class="invalid-feedback">Please let me know your name.</div>
+          </div>
+          <div class="mb-3">
+            <label class="form-label" for="contact-phone">Phone <span class='text-danger'>*</span></label>
+            <input class="form-control" type="text" name="contact_phone" id="contact-phone" placeholder="Your phone" required>
+            <div class="invalid-feedback">Please let me know your phone.</div>
+          </div>
+          <div class="mb-3">
+            <label class="form-label" for="contact-email">Email <span class='text-danger'>*</span></label>
+            <input class="form-control" type="email" name="contact_email" id="contact-email" placeholder="Your email address" required>
+            <div class="invalid-feedback">Please provide a valid email address.</div>
+          </div>
+          <div class="mb-4">
+            <label class="form-label" for="contact-message">Message <span class='text-danger'>*</span></label>
+            <textarea class="form-control" name="contact_message" id="contact-message" rows="5" placeholder="Your message" required></textarea>
+            <div class="invalid-feedback">Please write your message.</div>
+          </div>
+          <button class="btn btn-primary d-block w-100 mb-4" type="submit">Send message</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,67 @@
+{% extends 'base.html' %} 
+{% load static %}
+{% load i18n %}
+
+{% block content %}
+<!-- Page content-->
+<section class="position-relative bg-white rounded-xxl-4 zindex-5" style="margin-top: -30px;">
+  <div class="container pt-4 pb-5 mb-md-4">
+    <div class="row">
+      <!-- Sticky sidebar-->
+      <aside class="col-lg-4 col-md-5 mb-4 mb-md-0" style="margin-top: -6rem;">
+        <div class="sticky-top" style="padding-top: 6rem;">
+          <!-- Side Nav Partial -->
+          {% include 'partials/_side-navbar.html' %}
+        </div>
+      </aside>
+
+      <!-- Resume Col -->
+      <div class="col-lg-8 col-md-7 position-relative mb-4 mb-md-0">
+
+        <!-- Education -->
+        <section class="mb-0" id="education">
+          <h1 class="h3 mb-0">Education</h1>
+          <!-- Breadcrumb-->
+          <nav class="mb-3 pt-md-2" aria-label="Breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a></li>
+              <li class="breadcrumb-item active" aria-current="page">My Education</li>
+            </ol>
+          </nav>
+          <p class="pb-3 border-bottom mb-4">My education are divided between certificates, courses, and degrees.</p>
+          <div class="border rounded-3 p-3 pb-1">
+            <b class="mb-3">Certificates</b>
+            <div class="row pt-2">
+              <div class="col-sm-6">
+                <ul class="fs-sm opacity-70 ps-4">
+                  {% for i in certificates_list1 %}
+                  <li>{{ i.name }}</li>
+                  {% endfor %}
+                </ul>
+              </div>
+              <div class="col-sm-6">
+                <ul class="fs-sm opacity-70 ps-4">
+                  {% for i in certificates_list2 %}
+                  <li>{{ i.name }}</li>
+                  {% endfor %}
+                </ul>
+              </div>
+            </div>
+            <hr class="my-3">
+            <b>Bachelor Degree</b>
+            {% for i in bachelor_degrees %}
+              <p class="fs-sm pt-2 opacity-70">{{ i.name }}</p>
+            {% endfor %}
+            <hr class="my-3">
+            <b>School Degrees</b>
+            {% for i in school_degrees %}
+              <p class="fs-sm pt-2 opacity-70">{{ i.name }}</p>
+            {% endfor %}
+          </div>
+        </section>
+
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

@@ -1,0 +1,505 @@
+{% extends 'base.html' %} 
+{% load static %}
+{% load i18n %}
+
+
+{% block content %}
+<!-- Page content-->
+<section class="position-relative bg-white rounded-xxl-4 zindex-5" style="margin-top: -30px;">
+  <div class="container pt-4 pb-5 mb-md-4">
+    <div class="row">
+      <!-- Sticky sidebar-->
+      <aside class="col-lg-4 col-md-5 mb-4 mb-md-0" style="margin-top: -6rem;">
+        <div class="sticky-top" style="padding-top: 6rem;">
+          <!-- Side Nav Partial -->
+          {% include 'partials/_side-navbar.html' %}
+        </div>
+      </aside>
+
+      <!-- Resume Col -->
+      <div class="col-lg-8 col-md-7 position-relative mb-4 mb-md-0">
+
+        <!-- Experience Section -->
+        <section class="mb-4 pb-md-3" id="experience">
+          <h1 class="h3 mb-0">Experience</h1>
+          <!-- Breadcrumb-->
+          <nav class="mb-3 pt-md-2" aria-label="Breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a></li>
+              <li class="breadcrumb-item active" aria-current="page">My Experience</li>
+            </ol>
+          </nav>
+
+          <p class="pb-3 border-bottom mb-4">My experience is divided between 8 years technical and 10 years business.</p>
+          <!-- Accordion-->
+          <div id="accordionJobs">
+            <!-- Createx Studio -->
+            <div class="card bg-secondary mb-2" data-bs-toggle="collapse" data-bs-target="#jobCollapse1">
+              <div class="card-body">
+                <div class="d-flex justify-content-between mb-2">
+                  <div class="d-flex align-items-center">
+                    <img class="me-2" src="{% static 'img/company/createx_logo.png' %}" width="24" alt="Createx studio">
+                    <span class="fs-sm text-dark opacity-80 ps-1">Createx Studio</span>
+                  </div>
+                  <span class="badge bg-faded-primary rounded-pill fs-sm">3 Years</span>
+                </div>
+                <h3 class="h6 card-title pt-1 mb-0">Senior Frontend Developer</h3>
+              </div>
+              <div class="collapse show" id="jobCollapse1" data-bs-parent="#accordionJobs">
+                <div class="card-body mt-n1 pt-0">
+                  {% for i in senior_frontend_job_description %}
+                  <div class="fs-sm">{{ i.description|safe }}</div>
+                  {% endfor %}
+                  <!-- Job Card Footer -->
+                  <div class="fs-sm">
+                    <span class="text-nowrap me-3">
+                      <i class="fi-calendar text-muted me-1"> </i>From May 2020 till Present
+                    </span>
+                    <span class="text-nowrap me-3">
+                      <i class="fi-map-pin text-muted me-1"> </i>Remotely
+                    </span>
+                    <span class="text-nowrap">
+                      <i class="fi-cash fs-base text-muted me-1"></i>Freelancer
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Infinity Egypt -->
+            <div class="card bg-secondary collapsed mb-2" data-bs-toggle="collapse" data-bs-target="#jobCollapse2">
+              <div class="card-body">
+                <div class="d-flex justify-content-between mb-2">
+                  <div class="d-flex align-items-center"><img class="me-2" src="{% static 'img/company/infinity-egypt-logo.jpeg' %}" width="24" alt="Infinity Egypt">
+                    <span class="fs-sm text-dark opacity-80 ps-1">Infinity Egypt</span>
+                  </div>
+                  <span class="badge bg-faded-primary rounded-pill fs-sm">5 Years</span>
+                </div>
+                <h3 class="h6 card-title pt-1 mb-0">Frontend Developer</h3>
+              </div>
+              <div class="collapse" id="jobCollapse2" data-bs-parent="#accordionJobs">
+                <div class="card-body mt-n1 pt-0">
+                  <!-- Steps-->
+                  <div class="mx-auto" style="max-width: 864px;">
+                    <div class="steps steps-vertical">
+                      <div class="step">
+                        <div class="step-progress"><span class="step-progress-end"></span><span class="step-number bg-secondary shadow-hover">1</span></div>
+                        <div class="step-label">
+                          <h3 class="h5 mb-0 pb-1">Frontend Developer</h3>
+                          <p class="fs-sm opacity-70 mb-3">From January 2018 till April 2020</p>
+                          {% for i in frontend_job_description %}
+                            <div class="fs-sm">{{ i.description|safe }}</div>
+                          {% endfor %}
+                        </div>
+                      </div>
+                      <div class="step mb-4">
+                        <div class="step-progress"><span class="step-progress-end"></span><span class="step-number bg-secondary shadow-hover">2</span></div>
+                        <div class="step-label">
+                          <h3 class="h5 mb-0 pb-1">UI/UX Designer</h3>
+                          <p class="fs-sm opacity-70 mb-3">From September 2015 till December 2017</p>
+                          {% for i in designer_job_description %}
+                            <div class="fs-sm">{{ i.description|safe }}</div>
+                          {% endfor %}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Job Card Footer -->
+                  <div class="fs-sm">
+                    <span class="text-nowrap me-3">
+                      <i class="fi-calendar text-muted me-1"> </i>From September 2015 till April 2020
+                    </span>
+                    <span class="text-nowrap me-3">
+                      <i class="fi-map-pin text-muted me-1"> </i>On Site
+                    </span>
+                    <span class="text-nowrap">
+                      <i class="fi-cash fs-base text-muted me-1"></i>Staff
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- National Bank of Egypt -->
+            <div class="card bg-secondary collapsed mb-2" data-bs-toggle="collapse" data-bs-target="#jobCollapse3">
+              <div class="card-body">
+                <div class="d-flex justify-content-between mb-2">
+                  <div class="d-flex align-items-center"><img class="me-2" src="{% static 'img/company/nbe-logo.jpeg' %}" width="24" alt="NBE Logo">
+                    <span class="fs-sm text-dark opacity-80 ps-1">National Bank of Egypt</span>
+                  </div>
+                  <span class="badge bg-faded-primary rounded-pill fs-sm">5 Years</span>
+                </div>
+                <h3 class="h6 card-title pt-1 mb-0">Partnership Manager</h3>
+              </div>
+              <div class="collapse" id="jobCollapse3" data-bs-parent="#accordionJobs">
+                <div class="card-body mt-n1 pt-0">
+                  <!-- Steps-->
+                  <div class="mx-auto" style="max-width: 864px;">
+                    <div class="steps steps-vertical">
+                      <div class="step">
+                        <div class="step-progress"><span class="step-progress-end"></span><span class="step-number bg-secondary shadow-hover">1</span></div>
+                        <div class="step-label">
+                          <h3 class="h5 mb-0 pb-1">Partnership Manager</h3>
+                          <p class="fs-sm opacity-70 mb-3">From July 2014 till August 2015</p>
+                          {% for i in partnership_manager_job_description %}
+                            <div class="fs-sm">{{ i.description|safe }}</div>
+                          {% endfor %}
+                        </div>
+                      </div>
+                      <div class="step mb-4">
+                        <div class="step-progress"><span class="step-progress-end"></span><span class="step-number bg-secondary shadow-hover">2</span></div>
+                        <div class="step-label">
+                          <h3 class="h5 mb-0 pb-1">Business Acquisition Team Leader</h3>
+                          <p class="fs-sm opacity-70 mb-3">From January 2011 till June 2013</p>
+                          {% for i in business_acquisition_job_description %}
+                            <div class="fs-sm">{{ i.description|safe }}</div>
+                          {% endfor %}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Job Card Footer -->
+                  <div class="fs-sm">
+                    <span class="text-nowrap me-3">
+                      <i class="fi-calendar text-muted me-1"> </i>From January 2011 till August 2015
+                    </span>
+                    <span class="text-nowrap me-3">
+                      <i class="fi-map-pin text-muted me-1"> </i>On Site
+                    </span>
+                    <span class="text-nowrap">
+                      <i class="fi-cash fs-base text-muted me-1"></i>Staff
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- EVA Pharma -->
+            <div class="card bg-secondary collapsed mb-2" data-bs-toggle="collapse" data-bs-target="#jobCollapse4">
+              <div class="card-body">
+                <div class="d-flex justify-content-between mb-2">
+                  <div class="d-flex align-items-center"><img class="me-2" src="{% static 'img/company/eva-pharma-logo.png' %}" width="24" alt="EVA Logo">
+                    <span class="fs-sm text-dark opacity-80 ps-1">EVA Pharma</span>
+                  </div>
+                  <span class="badge bg-faded-primary rounded-pill fs-sm">2 Years</span>
+                </div>
+                <h3 class="h6 card-title pt-1 mb-0">Compensation &amp; Benefits Senior Specialist</h3>
+              </div>
+              <div class="collapse" id="jobCollapse4" data-bs-parent="#accordionJobs">
+                <div class="card-body mt-n1 pt-0">
+                  <!-- Steps-->
+                  <div class="mx-auto" style="max-width: 864px;">
+                    <div class="steps steps-vertical">
+                      <div class="step">
+                        <div class="step-progress"><span class="step-progress-end"></span><span class="step-number bg-secondary shadow-hover">1</span></div>
+                        <div class="step-label">
+                          <h3 class="h5 mb-0 pb-1">Compensation &amp; Benefits Senior Specialist</h3>
+                          <p class="fs-sm opacity-70 mb-3">From January 2010 till December 2010</p>
+                          {% for i in senior_compensation_benefits_job_description %}
+                            <div class="fs-sm">{{ i.description|safe }}</div>
+                          {% endfor %}
+                        </div>
+                      </div>
+                      <div class="step mb-3">
+                        <div class="step-progress"><span class="step-progress-end"></span><span class="step-number bg-secondary shadow-hover">2</span></div>
+                        <div class="step-label">
+                          <h3 class="h5 mb-0 pb-1">Compensation &amp; Benefits Specialist</h3>
+                          <p class="fs-sm opacity-70 mb-3">From February 2008 till December 2009</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Job Card Footer -->
+                  <div class="fs-sm">
+                    <span class="text-nowrap me-3">
+                      <i class="fi-calendar text-muted me-1"> </i>From February 2008 till December 2010
+                    </span>
+                    <span class="text-nowrap me-3">
+                      <i class="fi-map-pin text-muted me-1"> </i>On Site
+                    </span>
+                    <span class="text-nowrap">
+                      <i class="fi-cash fs-base text-muted me-1"></i>Staff
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Orange Telecom -->
+            <div class="card bg-secondary collapsed mb-2" data-bs-toggle="collapse" data-bs-target="#jobCollapse6">
+              <div class="card-body">
+                <div class="d-flex justify-content-between mb-2">
+                  <div class="d-flex align-items-center">
+                    <img class="me-2" src="{% static 'img/company/orange-logo.png' %}" width="24" alt="Orange Telecom">
+                    <span class="fs-sm text-dark opacity-80 ps-1">Orange Telecom</span>
+                  </div>
+                  <span class="badge bg-faded-primary rounded-pill fs-sm">6 Months</span>
+                </div>
+                <h3 class="h6 card-title pt-1 mb-0">First Class Customer Service Agent</h3>
+              </div>
+              <div class="collapse" id="jobCollapse6" data-bs-parent="#accordionJobs">
+                <div class="card-body mt-n1 pt-0">
+                  {% for i in customer_service_agent_job_description %}
+                    <div class="fs-sm">{{ i.description|safe }}</div>
+                  {% endfor %}
+                  <!-- Job Card Footer -->
+                  <div class="fs-sm">
+                    <span class="text-nowrap me-3">
+                      <i class="fi-calendar text-muted me-1"> </i>From August 2007 till February 2008
+                    </span>
+                    <span class="text-nowrap me-3">
+                      <i class="fi-map-pin text-muted me-1"> </i>On Site
+                    </span>
+                    <span class="text-nowrap">
+                      <i class="fi-cash fs-base text-muted me-1"></i>Staff
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Exceed Telecom -->
+            <div class="card bg-secondary collapsed mb-2" data-bs-toggle="collapse" data-bs-target="#jobCollapse7">
+              <div class="card-body">
+                <div class="d-flex justify-content-between mb-2">
+                  <div class="d-flex align-items-center">
+                    <img class="me-2" src="{% static 'img/company/exceed-logo.jpeg' %}" width="24" alt="Exceed Logo">
+                    <span class="fs-sm text-dark opacity-80 ps-1">Exceed Telecom</span>
+                  </div>
+                  <span class="badge bg-faded-primary rounded-pill fs-sm">2 Years</span>
+                </div>
+                <h3 class="h6 card-title pt-1 mb-0">Tele-Sales Agent</h3>
+              </div>
+              <div class="collapse" id="jobCollapse7" data-bs-parent="#accordionJobs">
+                <div class="card-body mt-n1 pt-0">
+                  {% for i in telesales_agent_job_description %}
+                    <div class="fs-sm">{{ i.description|safe }}</div>
+                  {% endfor %}
+                  <!-- Job Card Footer -->
+                  <div class="fs-sm">
+                    <span class="text-nowrap me-3">
+                      <i class="fi-calendar text-muted me-1"> </i>From March 2005 till May 2007
+                    </span>
+                    <span class="text-nowrap me-3">
+                      <i class="fi-map-pin text-muted me-1"> </i>On Site
+                    </span>
+                    <span class="text-nowrap">
+                      <i class="fi-cash fs-base text-muted me-1"></i>Outsource
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}
+
+
+
+<!-- Experience Section -->
+{% comment %} <section class="mb-4 pb-md-3" id="experience">
+  <h1 class="h3 mb-0">Experience</h1>
+  <nav class="mb-3 pt-md-2" aria-label="Breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a></li>
+      <li class="breadcrumb-item active" aria-current="page">My Experience</li>
+    </ol>
+  </nav>
+
+  <p class="pb-3 border-bottom mb-4">My experience is divided between 8 years technical and 10 years business.</p>
+  <div id="accordionJobs">
+    {% for i in employers_list %}
+      {% if forloop.first %}
+        <div class="card bg-secondary mb-2" data-bs-toggle="collapse" data-bs-target="#{{i.collapse_id}}">
+          <div class="card-body">
+            <div class="d-flex justify-content-between mb-2">
+              <div class="d-flex align-items-center">
+                <img class="me-2" src="{{ i.logo.url }}" width="24" alt="Createx studio">
+                <span class="fs-sm text-dark opacity-80 ps-1">{{ i.name }}</span>
+              </div>
+              <span class="badge bg-faded-primary rounded-pill fs-sm">{{ i.years_of_experience }}</span>
+            </div>
+            <h3 class="h6 card-title pt-1 mb-0">{{ i.last_job_title }}</h3>
+          </div>
+          <div class="collapse show" id="{{i.collapse_id}}" data-bs-parent="#accordionJobs">
+      
+          {% if i.multi_jobs %}
+            <div class="card-body mt-n1 pt-0">
+              <div class="mx-auto" style="max-width: 864px;">
+                <div class="steps steps-vertical">
+                  <div class="step">
+                    <div class="step-progress"><span class="step-progress-end"></span><span class="step-number bg-secondary shadow-hover">1</span></div>
+                    <div class="step-label">
+                      <h3 class="h5 mb-0 pb-1">Frontend Developer</h3>
+                      <p class="fs-sm opacity-70 mb-3">From January 2018 till April 2020</p>
+                      <ul class="fs-sm mb-1">
+                        <li>Developing company website using client-side languages, frameworks, libraries, modules, bundlers and compilers.</li>
+                        <li>Identifying improvement opportunities through monitoring performance and suggesting new technical solutions that help business requirements, ensure brand consistency, and maximize website performance.</li>
+                        <li>Transforming UI/UX designs to attractive user interface features with valid, clean, and maintainable code.</li>
+                        <li>Ensuring designs technical feasibility and consistency with company development standards.</li>
+                        <li>Building conceptual diagrams, mockups and manage detailed user interface specifications.</li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="step mb-4">
+                    <div class="step-progress"><span class="step-progress-end"></span><span class="step-number bg-secondary shadow-hover">2</span></div>
+                    <div class="step-label">
+                      <h3 class="h5 mb-0 pb-1">UI/UX Designer</h3>
+                      <p class="fs-sm opacity-70 mb-3">From September 2015 till December 2017</p>
+                      <ul class="fs-sm mb-1">
+                        <li>Analyzing the business goals, products objectives, competitive products, user needs, and brand direction.</li>
+                        <li>Collecting requirements through interviewing stakeholders and issue requirements documents.</li>
+                        <li>Translating requirements and thoughts to wireframes, prototypes, storyboards, user flows, site maps etc.</li>
+                        <li>Designing attractive interactive layouts, pages and features using different UI &amp; UX technologies.</li>
+                        <li>Conducting Usability testing to ensure that our company website renders well across multiple devices &amp; browsers.</li>
+                        <li>Coordinating with copywriters and graphic designers; designing backgrounds, icons and banners.</li>
+                        <li>Maintaining and improving site appearance and content through planning and implementing new designs.</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="fs-sm">
+                <span class="text-nowrap me-3">
+                  <i class="fi-calendar text-muted me-1"> </i>{{ i.start_end_date }}
+                </span>
+                <span class="text-nowrap me-3">
+                  <i class="fi-map-pin text-muted me-1"> </i>{{ i.department }}
+                </span>
+                <span class="text-nowrap me-3">
+                  <i class="fi-map-pin text-muted me-1"> </i>{{ i.type }}
+                </span>
+                <span class="text-nowrap">
+                  <i class="fi-cash fs-base text-muted me-1"></i>{{ i.contract }}
+                </span>
+              </div>
+            </div>
+          {% else %}
+            <div class="card-body mt-n1 pt-0">
+              {% for i in jobs_list %}
+                <div class="fs-sm">{{ i.description|safe }}</div>
+              {% endfor %}
+              <ul class="fs-sm">
+                <li>Translating themes final approved designs into maintainable clean code and compelling scalable interfaces using different client-side languages, frameworks, libraries, modules, bundlers and compilers.</li>
+                <li>Updating our themes through building reusable components for future use, and developing mobile-first responsive components to ensure that our themes are rendered perfectly across multiple platforms, browsers and devices.</li>
+                <li>Customizing clients websites using our themes through meeting them, collecting their requirements and discussing them with stakeholders to start working on these improvements that help business requirements.</li>
+                <li>Exploring effective trends, libraries and keeping abreast of latest and emerging technologies to update our themes.</li>
+              </ul>
+              <div class="fs-sm">
+                <span class="text-nowrap me-3">
+                  <i class="fi-calendar text-muted me-1"> </i>{{ i.start_end_date }}
+                </span>
+                <span class="text-nowrap me-3">
+                  <i class="fi-map-pin text-muted me-1"> </i>{{ i.department }}
+                </span>
+                <span class="text-nowrap me-3">
+                  <i class="fi-map-pin text-muted me-1"> </i>{{ i.type }}
+                </span>
+                <span class="text-nowrap">
+                  <i class="fi-cash fs-base text-muted me-1"></i>{{ i.contract }}
+                </span>
+              </div>
+            </div>
+          {% endif %}
+        </div>
+      {% else %}
+        <div class="card bg-secondary collapsed mb-2" data-bs-toggle="collapse" data-bs-target="#{{i.collapse_id}}">
+          <div class="card-body">
+            <div class="d-flex justify-content-between mb-2">
+              <div class="d-flex align-items-center">
+                <img class="me-2" src="{{ i.logo.url }}" width="24" alt="Createx studio">
+                <span class="fs-sm text-dark opacity-80 ps-1">{{ i.name }}</span>
+              </div>
+              <span class="badge bg-faded-primary rounded-pill fs-sm">{{ i.years_of_experience }}</span>
+            </div>
+            <h3 class="h6 card-title pt-1 mb-0">{{ i.last_job_title }}</h3>
+          </div>
+          <div class="collapse" id="{{i.collapse_id}}" data-bs-parent="#accordionJobs">
+      
+          {% if i.multi_jobs %}
+            <div class="card-body mt-n1 pt-0">
+              <div class="mx-auto" style="max-width: 864px;">
+                <div class="steps steps-vertical">
+                  <div class="step">
+                    <div class="step-progress"><span class="step-progress-end"></span><span class="step-number bg-secondary shadow-hover">1</span></div>
+                    <div class="step-label">
+                      <h3 class="h5 mb-0 pb-1">Frontend Developer</h3>
+                      <p class="fs-sm opacity-70 mb-3">From January 2018 till April 2020</p>
+                      <ul class="fs-sm mb-1">
+                        <li>Developing company website using client-side languages, frameworks, libraries, modules, bundlers and compilers.</li>
+                        <li>Identifying improvement opportunities through monitoring performance and suggesting new technical solutions that help business requirements, ensure brand consistency, and maximize website performance.</li>
+                        <li>Transforming UI/UX designs to attractive user interface features with valid, clean, and maintainable code.</li>
+                        <li>Ensuring designs technical feasibility and consistency with company development standards.</li>
+                        <li>Building conceptual diagrams, mockups and manage detailed user interface specifications.</li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="step mb-4">
+                    <div class="step-progress"><span class="step-progress-end"></span><span class="step-number bg-secondary shadow-hover">2</span></div>
+                    <div class="step-label">
+                      <h3 class="h5 mb-0 pb-1">UI/UX Designer</h3>
+                      <p class="fs-sm opacity-70 mb-3">From September 2015 till December 2017</p>
+                      <ul class="fs-sm mb-1">
+                        <li>Analyzing the business goals, products objectives, competitive products, user needs, and brand direction.</li>
+                        <li>Collecting requirements through interviewing stakeholders and issue requirements documents.</li>
+                        <li>Translating requirements and thoughts to wireframes, prototypes, storyboards, user flows, site maps etc.</li>
+                        <li>Designing attractive interactive layouts, pages and features using different UI &amp; UX technologies.</li>
+                        <li>Conducting Usability testing to ensure that our company website renders well across multiple devices &amp; browsers.</li>
+                        <li>Coordinating with copywriters and graphic designers; designing backgrounds, icons and banners.</li>
+                        <li>Maintaining and improving site appearance and content through planning and implementing new designs.</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="fs-sm">
+                <span class="text-nowrap me-3">
+                  <i class="fi-calendar text-muted me-1"> </i>{{ i.start_end_date }}
+                </span>
+                <span class="text-nowrap me-3">
+                  <i class="fi-map-pin text-muted me-1"> </i>{{ i.department }}
+                </span>
+                <span class="text-nowrap me-3">
+                  <i class="fi-map-pin text-muted me-1"> </i>{{ i.type }}
+                </span>
+                <span class="text-nowrap">
+                  <i class="fi-cash fs-base text-muted me-1"></i>{{ i.contract }}
+                </span>
+              </div>
+            </div>
+          {% else %}
+            <div class="card-body mt-n1 pt-0">
+              <ul class="fs-sm">
+                <li>Translating themes final approved designs into maintainable clean code and compelling scalable interfaces using different client-side languages, frameworks, libraries, modules, bundlers and compilers.</li>
+                <li>Updating our themes through building reusable components for future use, and developing mobile-first responsive components to ensure that our themes are rendered perfectly across multiple platforms, browsers and devices.</li>
+                <li>Customizing clients websites using our themes through meeting them, collecting their requirements and discussing them with stakeholders to start working on these improvements that help business requirements.</li>
+                <li>Exploring effective trends, libraries and keeping abreast of latest and emerging technologies to update our themes.</li>
+              </ul>
+              <div class="fs-sm">
+                <span class="text-nowrap me-3">
+                  <i class="fi-calendar text-muted me-1"> </i>{{ i.start_end_date }}
+                </span>
+                <span class="text-nowrap me-3">
+                  <i class="fi-map-pin text-muted me-1"> </i>{{ i.department }}
+                </span>
+                <span class="text-nowrap me-3">
+                  <i class="fi-map-pin text-muted me-1"> </i>{{ i.type }}
+                </span>
+                <span class="text-nowrap">
+                  <i class="fi-cash fs-base text-muted me-1"></i>{{ i.contract }}
+                </span>
+              </div>
+            </div>
+          {% endif %}
+        </div>
+      {% endif %}
+    </div>
+    {% endfor %}
+  </div>
+</section> {% endcomment %}

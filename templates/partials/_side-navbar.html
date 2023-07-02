@@ -1,0 +1,100 @@
+{% load static %}
+{% load i18n %}
+
+
+<!-- Side Nav -->
+<div class="card card-body border-0 shadow-sm p-lg-3 mb-3 mb-lg-0">
+  <div class="d-flex align-items-start justify-content-between">
+    <a class="text-decoration-none" href="#">
+      <img class="rounded-3 mb-3" src="{% static 'img/avatars/50.jpeg' %}" width="80" alt="Avatar">
+    </a>
+    <div class="ms-4 flex-shrink-0">
+      <div class="dropdown d-inline-block" data-bs-toggle="tooltip" title="Share">
+        <button class="btn btn-icon btn-light-primary btn-xs shadow-sm rounded-circle ms-2 mb-2" type="button" data-bs-toggle="dropdown"><i class="fi-share"></i></button>
+        <div class="dropdown-menu dropdown-menu-end my-1">
+          <button class="dropdown-item" type="button"><i class="fi-linkedin fs-base opacity-75 me-2"></i>LinkedIn</button>
+          <button class="dropdown-item" type="button"><i class="fi-whatsapp fs-base opacity-75 me-2"></i>Whatsapp</button>
+          <button class="dropdown-item" type="button"><i class="fi-discord fs-base opacity-75 me-2"></i>Discord</button>
+          <button class="dropdown-item" type="button"><i class="fi-telegram fs-base opacity-75 me-2"></i>Telegram</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <h2 class="h4 mb-1">Ahmed Fathy</h2>
+  <p class="text-body">Senior Frontend Developer</p>
+  <div class="mb-2">
+    <ul class="list-unstyled fs-sm">
+      <li><a class="nav-link fw-normal p-0" href="tel:01111129280"><i class="fi-phone opacity-60 me-2"></i>+201111129280</a></li>
+      <li><a class="nav-link fw-normal p-0" href="mailto:a.fat7y85@gmail.com"><i class="fi-mail opacity-60 me-2"></i>a.fat7y85@gmail.com</a></li>
+    </ul>
+  </div>
+  <!-- Send Message Button -->
+  <a class="btn btn-primary rounded-pill w-100 mb-3" href="#send-message-modal" data-bs-toggle="modal">
+    <i class="fi-chat-left pt-1 me-2"></i>Say Hello
+  </a>
+  <!-- Menu Button -->
+  <a class="btn btn-outline-primary rounded-pill d-block d-md-none w-100 mb-3" href="#side-nav" data-bs-toggle="collapse">
+    <i class="fi-align-justify me-2"></i>Menu
+  </a>
+  <!-- Menu -->
+  <div class="collapse d-md-block mt-3" id="side-nav">
+    <div class="card-nav">
+
+      <!-- Overview -->
+      <a
+      {% if 'overview' in request.path %} 
+        class="card-nav-link active"
+      {% else %}
+        class="card-nav-link"
+      {% endif %}
+      href="{% url 'home' %}">
+        <i class="fi-home opacity-60 me-2"></i>Overview
+      </a>
+
+      <!-- Experience -->
+      <a
+      {% if 'experience/' in request.path %} 
+        class="card-nav-link active"
+      {% else %}
+        class="card-nav-link"
+      {% endif %}
+      href="{% url 'experience' %}">
+        <i class="fi-briefcase opacity-60 me-2"></i>Experience
+      </a>
+
+      <!-- Projects -->
+      <a
+      {% if 'projects/' in request.path %} 
+        class="card-nav-link active"
+      {% else %}
+        class="card-nav-link"
+      {% endif %}
+      href="{% url 'projects' %}">
+        <i class="fi-briefcase opacity-60 me-2"></i>Projects
+      </a>
+
+      <!-- Skills -->
+      <a
+      {% if 'skills/' in request.path %} 
+        class="card-nav-link active"
+      {% else %}
+        class="card-nav-link"
+      {% endif %}
+      href="{% url 'skills' %}">
+        <i class="fi-star opacity-60 me-2"></i>Skills
+      </a>
+
+      <!-- Education -->
+      <a
+      {% if 'education/' in request.path %} 
+        class="card-nav-link active"
+      {% else %}
+        class="card-nav-link"
+      {% endif %}
+      href="{% url 'education' %}">
+        <i class="fi-star opacity-60 me-2"></i>Education
+      </a>
+
+    </div>
+  </div>
+</div>

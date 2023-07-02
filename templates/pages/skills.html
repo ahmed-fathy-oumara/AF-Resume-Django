@@ -1,0 +1,155 @@
+{% extends 'base.html' %} 
+{% load static %}
+{% load i18n %}
+
+{% block content %}
+<!-- Page content-->
+<section class="position-relative bg-white rounded-xxl-4 zindex-5" style="margin-top: -30px;">
+  <div class="container pt-4 pb-5 mb-md-4">
+    <div class="row">
+      <!-- Sticky sidebar-->
+      <aside class="col-lg-4 col-md-5 mb-4 mb-md-0" style="margin-top: -6rem;">
+        <div class="sticky-top" style="padding-top: 6rem;">
+          <!-- Side Nav Partial -->
+          {% include 'partials/_side-navbar.html' %}
+        </div>
+      </aside>
+
+      <!-- Resume Col -->
+      <div class="col-lg-8 col-md-7 position-relative mb-4 mb-md-0">
+
+        <!-- Skills -->
+        <section class="mb-4 pb-md-3" id="skills">
+          <h1 class="h3 mb-0">Skills</h1>
+          <!-- Breadcrumb-->
+          <nav class="mb-3 pt-md-2" aria-label="Breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a></li>
+              <li class="breadcrumb-item active" aria-current="page">My Skills</li>
+            </ol>
+          </nav>
+          <p class="pb-3 border-bottom mb-4">My skills are divided between frontend, backend, tooling, language and personal skills.</p>
+
+          <div class="accordion mb-4" id="features">
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingFrontEnd">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#frontEnd" aria-expanded="true" aria-controls="frontEnd">Frontend Skills</button>
+              </h2>
+              <div class="accordion-collapse collapse show" id="frontEnd" aria-labelledby="headingFrontEnd" data-bs-parent="#features">
+                <div class="accordion-body fs-sm opacity-70">
+                  <div class="row">
+                    <div class="col-sm-6">
+                      <ul>
+                        {% for i in frontend_skills_list1 %}
+                        <li>{{ i.name }}</li>
+                        {% endfor %}
+                      </ul>
+                    </div>
+                    <div class="col-sm-6">
+                      <ul>
+                        {% for i in frontend_skills_list2 %}
+                        <li>{{ i.name }}</li>
+                        {% endfor %}
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingInterior">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#interior" aria-expanded="false" aria-controls="interior">Backend Skills</button>
+              </h2>
+              <div class="accordion-collapse collapse" id="interior" aria-labelledby="headingInterior" data-bs-parent="#features">
+                <div class="accordion-body fs-sm opacity-70">
+                  <div class="row">
+                    <div class="col-sm-6">
+                      <ul>
+                        {% for i in backend_skills_list1 %}
+                        <li>{{ i.name }}</li>
+                        {% endfor %}
+                      </ul>
+                    </div>
+                    <div class="col-sm-6">
+                      <ul>
+                        {% for i in backend_skills_list2 %}
+                        <li>{{ i.name }}</li>
+                        {% endfor %}
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingSafety">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#safety" aria-expanded="false" aria-controls="safety">Tooling Skills</button>
+              </h2>
+              <div class="accordion-collapse collapse" id="safety" aria-labelledby="headingSafety" data-bs-parent="#features">
+                <div class="accordion-body fs-sm opacity-70">
+                  <div class="row">
+                    <div class="col-sm-6">
+                      <ul>
+                        {% for i in tooling_skills_list1 %}
+                        <li>{{ i.name }}</li>
+                        {% endfor %}
+                      </ul>
+                    </div>
+                    <div class="col-sm-6">
+                      <ul>
+                        {% for i in tooling_skills_list2 %}
+                        <li>{{ i.name }}</li>
+                        {% endfor %}
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingTechnology">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#technology" aria-expanded="false" aria-controls="technology">Language Skills</button>
+              </h2>
+              <div class="accordion-collapse collapse" id="technology" aria-labelledby="headingTechnology" data-bs-parent="#features">
+                <div class="accordion-body fs-sm opacity-70">
+                  <div class="row">
+                    <div class="col-sm-6">
+                      <ul>
+                        {% for i in language_skills_list1 %}
+                        <li>{{ i.name }}</li>
+                        {% endfor %}
+                      </ul>
+                    </div>
+                    <div class="col-sm-6">
+                      <ul>
+                        {% for i in language_skills_list2 %}
+                        <li>{{ i.name }}</li>
+                        {% endfor %}
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingExterior">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#exterior" aria-expanded="false" aria-controls="exterior">Personal Skills</button>
+              </h2>
+              <div class="accordion-collapse collapse" id="exterior" aria-labelledby="headingExterior" data-bs-parent="#features">
+                <div class="accordion-body fs-sm opacity-70">
+                  <ul>
+                    {% for i in personal_skills %}
+                    <li>{{ i.name }}</li>
+                    {% endfor %}
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

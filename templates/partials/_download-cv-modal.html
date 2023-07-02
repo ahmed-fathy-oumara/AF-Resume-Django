@@ -1,0 +1,21 @@
+{% load static %}
+{% load i18n %}
+
+<!-- Download CV Modal-->
+<div class="modal fade" id="download-cv-modal" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header d-block position-relative border-0 pb-0 px-sm-5 px-4">
+        <h3 class="modal-title mt-4 text-center">Download My Resume</h3>
+        <button class="btn-close position-absolute top-0 end-0 mt-3 me-3" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body px-sm-5 px-4">
+        <img class="m-0 p-0" src="{% static 'img/resume/download-resume.png' %}" alt="Download My Resume">
+        {% for i in my_resumes  %}
+        <p>You can click on the below big button to download my resume as a PDF file, and you can drop your email in the footer form to receive my full portfolio!</p>
+        <a href="{{ i.cv_file.url }}" download class="btn btn-primary d-block w-100 mb-4"><i class="fi-download-file me-2"></i>Download Now</a>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
